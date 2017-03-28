@@ -1,0 +1,38 @@
+# A Heat environment file which can be used to enable a
+# a Cinder NetApp backend, configured via puppet
+resource_registry:
+  OS::TripleO::ControllerExtraConfigPre: /home/stack/templates/puppet/extraconfig/pre_deploy/controller/cinder-netapp.yaml
+
+parameter_defaults:
+  #CinderEnableNfsBackend: true
+  #CinderNfsServers: '192.168.122.1:/export/cinder'
+  CinderEnableIscsiBackend: false
+  #
+  CinderEnableNetappBackend: true
+  CinderNetappBackendName: 'tripleo_netapp'
+  CinderNetappLogin: 'Dog'
+  CinderNetappPassword: 'Beagle'
+  CinderNetappServerHostname: 'netapp-nfs'
+  CinderNetappServerPort: '80'
+  CinderNetappSizeMultiplier: '1.2'
+  CinderNetappStorageFamily: 'ontap_cluster'
+  CinderNetappStorageProtocol: 'nfs'
+  CinderNetappTransportType: 'http'
+  CinderNetappVfiler: ''
+  CinderNetappVolumeList: ''
+  CinderNetappVserver: ''
+  CinderNetappPartnerBackendName: ''
+  CinderNetappNfsShares: '192.168.67.1:/cinder1'
+  CinderNetappNfsSharesConfig: '/etc/cinder/shares.conf'
+  CinderNetappNfsMountOptions: ''
+  CinderNetappCopyOffloadToolPath: ''
+  CinderNetappControllerIps: ''
+  CinderNetappSaPassword: ''
+  CinderNetappStoragePools: ''
+  CinderNetappHostType: ''
+  CinderNetappWebservicePath: '/devmgr/v2'
+
+  ControllerExtraConfig:
+    cinder::config::cinder_config:
+      tripleo_netapp/nas_secure_file_operations:
+        value: false
