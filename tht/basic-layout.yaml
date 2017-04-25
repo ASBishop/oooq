@@ -27,7 +27,7 @@ parameter_defaults:
   CephStorageCount: 0
 
   ControllerSchedulerHints:
-    'capabilities:node': 'controller-%index%'
+    'capabilities:node': 'control-%index%'
   NovaComputeSchedulerHints:
     'capabilities:node': 'compute-%index%'
   CephStorageSchedulerHints:
