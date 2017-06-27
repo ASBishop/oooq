@@ -1,0 +1,13 @@
+parameter_defaults:
+  CinderEnableIscsiBackend: false
+  CinderEnableNfsBackend: true
+  CinderNfsServers: '192.168.23.1:/var/nfs'
+  CinderNfsMountOptions: 'retry=4'
+#  CinderNfsSnapshotSupport: true
+  CinderNasSecureFileOperations: true
+  CinderNasSecureFilePermissions: auto
+
+#  ControllerExtraConfig:
+#    cinder::config::cinder_config:
+#      tripleo_nfs/nfs_snapshot_support:
+#        value: true

@@ -1,0 +1,9 @@
+parameter_defaults:
+  CinderRbdExtraPools: kayla,emily
+  CephPools:
+    kayla:
+      pg_num: 64
+      pgp_num: 64
+    emily:
+      pg_num: 64
+      pgp_num: 64

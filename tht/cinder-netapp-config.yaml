@@ -20,12 +20,16 @@ parameter_defaults:
   CinderNetappVolumeList: ''
   CinderNetappVserver: ''
   CinderNetappPartnerBackendName: ''
-  CinderNetappNfsShares: '192.168.23.1:/var/nfs'
+  CinderNetappNfsShares: '192.168.99.1:/var/nfs'
   CinderNetappNfsSharesConfig: '/etc/cinder/shares.conf'
   CinderNetappNfsMountOptions: ''
+  CinderNetappNfsSnapshotSupport: false
   CinderNetappCopyOffloadToolPath: ''
   CinderNetappControllerIps: ''
   CinderNetappSaPassword: ''
   CinderNetappStoragePools: ''
   CinderNetappHostType: ''
   CinderNetappWebservicePath: '/devmgr/v2'
+  CinderNetappNfsSnapshotSupport: true
+  CinderNetappNasSecureFileOperations: auto
+  CinderNetappNasSecureFilePermissions: true

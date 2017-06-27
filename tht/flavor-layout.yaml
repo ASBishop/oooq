@@ -21,17 +21,12 @@ resource_registry:
 parameter_defaults:
   ControllerCount: 1
   ComputeCount: 1
-  CephStorageCount: 0
+  CephStorageCount: 3
 
-  ControllerSchedulerHints:
-    'capabilities:node': 'control-%index%'
-  NovaComputeSchedulerHints:
-    'capabilities:node': 'compute-%index%'
-  CephStorageSchedulerHints:
-    'capabilities:node': 'ceph-storage-%index%'
-  OsdComputeSchedulerHints:
-    'capabilities:node': 'osd-compute-%index%'
-  JeOsMonSchedulerHints:
-    'capabilities:node': 'jeos-mon-%index%'
-  JeOsOsdSchedulerHints:
-    'capabilities:node': 'jeos-osd-%index%'
+  OvercloudControlFlavor: oooq_control
+  OvercloudComputeFlavor: oooq_compute
+  OvercloudCephStorageFlavor: oooq_ceph
+
+  ManageKeystoneFernetKeys: false
+  KeystoneFernetKeys: {}
+  KeystoneTokenProvider: uuid
