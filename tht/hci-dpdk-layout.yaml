@@ -1,0 +1,65 @@
+resource_registry:
+  OS::TripleO::Services::CephMon: /home/stack/templates/puppet/services/ceph-mon.yaml
+  OS::TripleO::Services::CephOSD: /home/stack/templates/puppet/services/ceph-osd.yaml
+  #OS::TripleO::Services::ComputeNeutronOvsDpdkAgent: /home/stack/templates/puppet/services/neutron-ovs-dpdk-agent.yaml
+  #OS::TripleO::Services::ComputeNeutronOvsAgent: /home/stack/templates/puppet/services/neutron-ovs-dpdk-agent.yaml
+  OS::TripleO::Services::ComputeNeutronOvsDpdkAgent: /home/stack/templates/puppet/services/neutron-ovs-agent.yaml
+  OS::TripleO::Services::ComputeNeutronOvsAgent: /home/stack/templates/puppet/services/neutron-ovs-agent.yaml
+
+parameter_defaults:
+  ControllerCount: 1
+  ComputeCount: 0
+  ComputeDpdkCount: 1
+  CephStorageCount: 0
+  OsdComputeCount: 1
+  JeOsMonCount: 0
+  JeOsOsdCount: 0
+
+  #NovaVcpuPinSet: 1-23,25-47
+  #OsdComputeParameters:
+  #  NovaVcpuPinSet: 0-22,24-42,44
+
+  OsdComputeExtraConfig:
+    ceph::profile::params::osds:
+      '/dev/sdd':
+        journal: '/dev/sda'
+      '/dev/sde':
+        journal: '/dev/sda'
+      '/dev/sdf':
+        journal: '/dev/sda'
+      '/dev/sdg':
+        journal: '/dev/sda'
+      '/dev/sdh':
+        journal: '/dev/sdb'
+      '/dev/sdi':
+        journal: '/dev/sdb'
+      '/dev/sdj':
+        journal: '/dev/sdb'
+      '/dev/sdk':
+        journal: '/dev/sdb'
+      '/dev/sdl':
+        journal: '/dev/sdc'
+      '/dev/sdm':
+        journal: '/dev/sdc'
+      '/dev/sdn':
+        journal: '/dev/sdc'
+      '/dev/sdo':
+        journal: '/dev/sdc'
+
+  OvercloudComputeDpdkFlavor: compute
+  OvercloudOsdComputeFlavor: oooq_ceph
+
+#  ControllerSchedulerHints:
+#    'capabilities:node': 'control-%index%'
+#  NovaComputeSchedulerHints:
+#    'capabilities:node': 'compute-%index%'
+#  ComputeDpdkSchedulerHints:
+#    'capabilities:node': 'compute-%index%'
+#  CephStorageSchedulerHints:
+#    'capabilities:node': 'ceph-storage-%index%'
+#  OsdComputeSchedulerHints:
+#    'capabilities:node': 'osd-compute-%index%'
+  JeOsMonSchedulerHints:
+    'capabilities:node': 'jeos-mon-%index%'
+  JeOsOsdSchedulerHints:
+    'capabilities:node': 'jeos-osd-%index%'
